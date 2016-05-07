@@ -1,7 +1,10 @@
+import { STATIC } from 'config/paths'
+
 export default {
   entry: 'src/app/entry.js',
   output: {
-    path: 'static',
-    filename: 'bundle.js'
+    path: STATIC,
+    filename: 'bundle.js',
+    publicPath: '/static',
   }
 }
