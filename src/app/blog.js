@@ -5,31 +5,27 @@ import { connect } from 'react-redux'
 import { apiFetch } from 'app/action/blog'
 import styles from 'app/styles/blog.css' 
 
-class Blog extends React.Component {
-  render() {
-    const pathname = this.props.location.pathname
-    return (
+function Blog() {
+  const pathname = this.props.location.pathname
+  return (
       <div className={styles.blog_app}>
-        <ul>
-          <li><Link activeClassName='active' to='/blog/archives'>Archives</Link></li>
-          <li><Link activeClassName='active' to='/blog/about'>About</Link></li>
-          <li><Link activeClassName='active' to='/blog/signIn'>Sign in</Link></li>
-          <li><Link activeClassName='active' to='/blog/signOut'>Sign out</Link></li>
-        </ul>
-        {React.cloneElement(this.props.children || <div/>, {key: pathname})}
-      </div>
-    )
-  }
+      <ul>
+      <li><Link activeClassName='active' to='/blog/archives'>Archives</Link></li>
+      <li><Link activeClassName='active' to='/blog/about'>About</Link></li>
+      <li><Link activeClassName='active' to='/blog/signIn'>Sign in</Link></li>
+      <li><Link activeClassName='active' to='/blog/signOut'>Sign out</Link></li>
+      </ul>
+      {React.cloneElement(this.props.children || <div/>, {key: pathname})}
+    </div>
+  )
 }
 
-class About extends React.Component {
-  render() {
-    return (
+function About() {
+  return (
       <div className={styles.about}>
-        <h1>About author</h1>
+      <h1>About author</h1>
       </div>
-    )
-  }
+  )
 }
 
 @provideHooks({
