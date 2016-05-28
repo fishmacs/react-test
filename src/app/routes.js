@@ -5,6 +5,7 @@ import { RouteTest, About, Inbox, Message, Dashboard } from 'app/route-test'
 import routeTestRoutes from 'app/route-test'
 import blogRoutes from 'app/blog'
 import ryfRoutes from 'app/ryf'
+import wfRoutes from 'app/westfall'
 
 function routes() {
   return (
@@ -12,6 +13,7 @@ function routes() {
       {routeTestRoutes}
       {blogRoutes}
       {ryfRoutes}
+      {wfRoutes}
     </Route>
   )
 }

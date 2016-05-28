@@ -3,10 +3,10 @@ import { provideHooks } from 'redial'
 import { connect } from 'react-redux'
 
 import { apiFetch } from 'app/action/blog'
-import styles from 'app/styles/blog.css' 
+import styles from 'app/styles/blog.css'
 
-function Blog() {
-  const pathname = this.props.location.pathname
+function Blog(props) {
+  const pathname = props.location.pathname
   return (
       <div className={styles.blog_app}>
       <ul>
@@ -15,7 +15,7 @@ function Blog() {
       <li><Link activeClassName='active' to='/blog/signIn'>Sign in</Link></li>
       <li><Link activeClassName='active' to='/blog/signOut'>Sign out</Link></li>
       </ul>
-      {React.cloneElement(this.props.children || <div/>, {key: pathname})}
+      {React.cloneElement(props.children || <div/>, {key: pathname})}
     </div>
   )
 }

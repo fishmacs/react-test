@@ -7,7 +7,7 @@ const initialState = {
   data: [],
 }
 
-export const articleReducer = typeToReducer({
+export default typeToReducer({
   [ API_FETCH_ARTICLES ]: {
     PENDING: () => ({
       ...initialState,
