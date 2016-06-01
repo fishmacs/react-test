@@ -15,10 +15,31 @@ import {API_FETCH_WIDGETLIST, API_DELETE_WIDGET} from 'app/action/westfall'
 //   pending: false
 // }
 
-export const widgetListReducer = typeToReducer({
-  [API_FETCH_WIDGETLIST]: promiseReducer(listState, 'data'),
-}, listState)
-
-export const widgetDelReducer = typeToReducer({
-  [API_DELETE_WIDGET]: promiseReducer(delState)
-}, delState)
+export const widgetListReducer = function() {
+  // record id of API_DELETE_WIDGET
+  let delId
+  return typeToReducer({
+    [API_FETCH_WIDGETLIST]: promiseReducer(listState, 'data'),
+    [API_DELETE_WIDGET]: {
+      PENDING: (state, action) => {
+        delId = action.payload.id
+        return {
+          ...state,
+          pending: true
+        }
+      },
+      REJECTED: (state, action) => ({
+        ...state,
+        error: action.payload
+      }),
+      FULFILLED: (state, action) => {
+        if(action.payload.result === 'ok') {
+          return {
+            ...state,
+            data: state.data.filter(widget => widget.id !== delId)
+          }
+        }
+      }
+    }
+  }, listState)
+}()

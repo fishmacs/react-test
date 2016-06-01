@@ -15,7 +15,7 @@ function *demoClientRender() {
   yield sendfile(this, path.join(__dirname, '../views/index.html'))
 }
 
-router.get('demo', '/(^api/).*', demoClientRender)
+router.get('demo', '/(.*)', demoClientRender)
 
 export default router
 

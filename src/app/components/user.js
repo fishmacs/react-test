@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
 
-import {fetchUserList, deleteUser, loadSearchLayout} from 'app/action/westfall'
+import {fetchUserList, deleteUser, getUserProfile, loadSearchLayout} from 'app/action/westfall'
 import store from 'app/services/store'
 import styles from 'app/styles/westfall'
 
@@ -17,7 +17,7 @@ export class UserListContainer extends React.Component {
   }
 
   render() {
-    return <UserList users={this.props.users} deleteUser={deleteUser} />
+    return <UserList users={this.props.users} deleteUser={this.deleteUser} />
   }
 }
 
@@ -28,7 +28,7 @@ function UserList(props) {
         return (
           <div key={user.id} className={styles['data-list-item']}>
             <div className={styles.details}>
-              <Link to={'/users/' + user.id}>
+              <Link to={'/westfall/users/' + user.id}>
                 {user.name}
               </Link>
             </div>
@@ -44,10 +44,10 @@ function UserList(props) {
   )
 }
 
-@connect(state => ({profile: state.user.profile}))
+@connect(state => ({profile: state.profile.data}))
 export class UserProfileContainer extends React.Component {
   componentDidMount() {
-    dispatch(getUserProfile(this.props.params.userId))
+    store.dispatch(getUserProfile(this.props.params.id))
   }
 
   render() {
@@ -57,7 +57,7 @@ export class UserProfileContainer extends React.Component {
 
 function UserProfile(props) {
   return (
-    <div className={sytles['user-profile']}>
+    <div className={styles['user-profile']}>
       <img src={props.imageUrl} />
       <div className={styles.details}>
         <h1>{props.name}</h1>

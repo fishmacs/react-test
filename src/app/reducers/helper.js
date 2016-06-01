@@ -13,28 +13,30 @@ export const delState = {
   pending: false
 }
 
-export function promiseReducer(initialState, dataKey='', dataFunc=identity) {
+export function promiseReducer(initialState, dataKey='', dataFunc=payload => payload.data) {
   return {
     // PENDING's data is undefined in state argument,
     // so use initialState
-    PENDING: () => ({
-      ...initialState,
+    PENDING: (state, action) => ({
+      ...state,
       pending: true
     }),
     // REJECTED's data is undefined in state argument,
     // so use initialState
     REJECTED: (state, action) => ({
-      ...initialState,
+      ...state,
       error: action.payload
     }),
     FULFILLED: (state, action) => {
-      let newState = Object.assign({}, initialState)
+      console.log('old', action.type, action.payload.data)
+      let newState = Object.assign({}, state)
       if (dataKey) {
         if (!action.payload.data)
           newState.error = 'Error format!'
         else
-          newState[dataKey] = dataFunc(action.payload.data)
+          newState[dataKey] = dataFunc(action.payload)
       }
+      console.log('new', action.type, newState)
       return newState
     }
   }

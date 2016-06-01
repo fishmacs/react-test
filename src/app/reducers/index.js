@@ -2,14 +2,13 @@ import { combineReducers } from 'redux'
 //import { routerReducer } from 'react-router-redux'
 
 import articleReducer from './article'
-import {userListReducer, userDelReducer, userProfileReducer} from './user'
+import {userListReducer, userProfileReducer} from './user'
 import {widgetListReducer, widgetDelReducer} from './widget'
 import {searchReducer} from './search'
 
 export default combineReducers({
   article: articleReducer,
   user: userListReducer,
-  userDelReducer,
   profile: userProfileReducer,
   widget: widgetListReducer,
   widgetDelReducer,

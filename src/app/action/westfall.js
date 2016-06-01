@@ -4,17 +4,17 @@ import {fetch, del} from 'app/utils'
 
 export const API_FETCH_USERLIST = 'api/fetch_userlist'
 export const API_DELETE_USER = 'api/delete_user'
-export const API_FETCH_USERPROFILE = 'api/get_userprofile'
+export const API_FETCH_USERPROFILE = 'api/fetch_userprofile'
 export const API_FETCH_WIDGETLIST = 'api/fetch_widgetlist'
 export const API_DELETE_WIDGET = 'api/delete_widget'
 
 export const LOAD_SEARCH_LAYOUT = 'load_search_layout'
 
 function makeAction(type, promise, opt={}) {
-  return Object.assign({
+  return {
     type,
-    payload: {promise}
-  }, opt)
+    payload: {data: opt, promise}
+  }
 }
 
 export function fetchUserList(query='') {
@@ -39,8 +39,8 @@ async function fetchProfile(userId) {
     worksOn: user.worksOn
   }
   const results = await Promise.all([
-    axios.get(`https://api.github.com/users/${userId}`),
-    axios.get(`https://api.github.com/users/${userId}/repo`)
+    axios.get(`https://api.github.com/users/${user.github}`),
+    axios.get(`https://api.github.com/users/${user.github}/repos`)
   ])
   const githubProfile = results[0].data
   const githubRepo = results[1].data
@@ -48,7 +48,7 @@ async function fetchProfile(userId) {
   profile.imageUrl = githubProfile.avatar_url
   profile.repos = githubRepo
 
-  return profile
+  return {result: 'ok', data: profile}
 }
 
 export function getUserProfile(userId) {
@@ -63,7 +63,7 @@ export function fetchWidgetList(query='') {
 export function deleteWidget(widgetId) {
   return makeAction(
     API_DELETE_WIDGET,
-    del('/api/widget'),
+    del('/api/widget/' + widgetId),
     {id: widgetId}
   )
 }
