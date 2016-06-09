@@ -6,6 +6,7 @@ import routeTestRoutes from 'app/route-test'
 import blogRoutes from 'app/blog'
 import ryfRoutes from 'app/ryf'
 import wfRoutes from 'app/westfall'
+import galleryRoutes from 'app/imageGallery.js'
 
 function routes() {
   return (
@@ -14,6 +15,7 @@ function routes() {
       {blogRoutes}
       {ryfRoutes}
       {wfRoutes}
+      {galleryRoutes}
     </Route>
   )
 }

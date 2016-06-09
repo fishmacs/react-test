@@ -1,7 +1,11 @@
 import promiseMiddleware from 'redux-promise-middleware'
 import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 
-export default [
+export const saga = createSagaMiddleware()
+
+export const middlewares = [
   thunk,
-  promiseMiddleware()
+  promiseMiddleware(),
+  saga
 ]
