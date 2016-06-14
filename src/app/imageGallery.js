@@ -5,14 +5,6 @@ import {bindActionCreators} from 'redux'
 import * as actions from 'app/action/gallery'
 import styles from 'app/styles/gallery'
 
-export default (
-  <Route path='gallery' component={ImageGallery} />
-)
-
-function ImageGallery() {
-  return <Gallery />
-}
-
 @connect(
   state => ({
     images: state.gallery.images,
@@ -20,7 +12,7 @@ function ImageGallery() {
   }),
   dispatch => bindActionCreators(actions, dispatch)
 )
-class Gallery extends React.Component {
+class ImageGallery extends React.Component {
   componentDidMount() {
     this.props.loadImages()
   }
@@ -35,6 +27,14 @@ class Gallery extends React.Component {
     )
   }
 }
+
+// Route component(or, the decoration?) must be defined above,
+// otherwise it is just blank(undefined).
+// if the component is just a function, it would be hoisted wherever it defined,
+// so can be seened by <Route...>
+export default (
+    <Route path='gallery' component={ImageGallery} />
+)
 
 function GalleryImage({image}) {
   return (
