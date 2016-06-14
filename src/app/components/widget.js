@@ -22,7 +22,6 @@ export class WidgetListContainer extends React.Component {
 }
 
 function WidgetList(props) {
-  console.log('ok')
   return (
     <div className={styles['data-list']}>
       {props.widgets.map(widget => {

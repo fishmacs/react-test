@@ -28,7 +28,6 @@ export function promiseReducer(initialState, dataKey='', dataFunc=payload => pay
       error: action.payload
     }),
     FULFILLED: (state, action) => {
-      console.log('old', action.type, action.payload.data)
       let newState = Object.assign({}, state)
       if (dataKey) {
         if (!action.payload.data)
@@ -36,7 +35,6 @@ export function promiseReducer(initialState, dataKey='', dataFunc=payload => pay
         else
           newState[dataKey] = dataFunc(action.payload)
       }
-      console.log('new', action.type, newState)
       return newState
     }
   }

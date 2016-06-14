@@ -1,6 +1,6 @@
 import {Component, PropTypes} from 'react'
-import {Route} from 'react-router'
 import {connect} from 'react-redux'
+import {Route} from 'react-router'
 
 import {addTodo, toggleTodo, setVisibilityFilter} from 'app/action/todo'
 
@@ -71,10 +71,6 @@ class Todo extends Component {
     text: PropTypes.string.isRequired
   }
 
-  // constructor(props) {
-  //   super(props)
-  // }
-
   render() {
     return (
       <li onClick={this.props.onClick}
@@ -115,10 +111,6 @@ class TodoList extends Component {
     onTodoClick: PropTypes.func.isRequired
   }
 
-  // constructor(props) {
-  //   super(props)
-  // }
-
   render() {
     const {todos, onTodoClick} = this.props
     return (
@@ -151,6 +143,9 @@ class Link extends Component {
   }
 
   render() {
+    if(this.props.active) {
+      return <span>{this.props.children}</span>
+    }
     return (
       <a href='#'
          onClick={e => {

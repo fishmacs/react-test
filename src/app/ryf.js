@@ -109,7 +109,6 @@ class Demo12 extends React.Component {
     } else if(this.state.error != null) {
       return <span>Error: {this.state.error.message}</span>
     } else {
-      console.log(this.state.data)
       const repos = this.state.data.items
       const repoList = repos.map((repo, index) => (
         <li key={index}>
