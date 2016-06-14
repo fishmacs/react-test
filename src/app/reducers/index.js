@@ -7,6 +7,7 @@ import {widgetListReducer, widgetDelReducer} from './widget'
 import {searchReducer} from './search'
 import {galleryReducer} from './gallery'
 import {todoReducer, visibilityFilter} from './todo'
+import {selectedSubReddit, postsBySubReddit} from './reddit'
 
 export default combineReducers({
   article: articleReducer,
@@ -17,6 +18,8 @@ export default combineReducers({
   search: searchReducer,
   gallery: galleryReducer,
   todos: todoReducer,
-  visibilityFilter
+  visibilityFilter,
+  postsBySubReddit,
+  selectedSubReddit
 //  routing: routerReducer
 })

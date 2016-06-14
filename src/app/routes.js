@@ -8,6 +8,7 @@ import ryfRoutes from 'app/ryf'
 import wfRoutes from 'app/westfall'
 import galleryRoutes from 'app/imageGallery.js'
 import todoRoutes from 'app/todoList.js'
+import redditRoutes from 'app/reddit.js'
 
 function routes() {
   return (
@@ -18,6 +19,7 @@ function routes() {
       {wfRoutes}
       {galleryRoutes}
       {todoRoutes}
+      {redditRoutes}
     </Route>
   )
 }

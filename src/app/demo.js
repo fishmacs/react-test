@@ -48,6 +48,7 @@ export class Demo extends React.Component {
           <Link to='/westfall'>Westfall</Link>
           <Link to='/gallery'>Image Gallery</Link>
           <Link to='/todo'>Todo List</Link>
+          <Link to='/reddit'>Reddit</Link>
         </nav>
         { this.props.children }
       </div>
