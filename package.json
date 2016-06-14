@@ -70,6 +70,7 @@
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.2.4",
+    "redux-logger": "^2.6.1",
     "webpack": "^1.13.0",
     "webpack-hot-middleware": "^2.10.0",
     "webpack-isomorphic-tools": "^2.2.50"
