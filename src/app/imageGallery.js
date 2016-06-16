@@ -1,6 +1,7 @@
 import {Route} from 'react-router'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import CSSModule from 'react-css-modules'
 
 import * as actions from 'app/action/gallery'
 import styles from 'app/styles/gallery'
@@ -12,6 +13,7 @@ import styles from 'app/styles/gallery'
   }),
   dispatch => bindActionCreators(actions, dispatch)
 )
+@CSSModule(styles)
 class ImageGallery extends React.Component {
   componentDidMount() {
     this.props.loadImages()
@@ -20,7 +22,7 @@ class ImageGallery extends React.Component {
   render() {
     const {images, selectImage, selectedImage} = this.props
     return (
-      <div className={styles['image-gallery']} hidden={!selectedImage}>
+      <div styleName='image-gallery' hidden={!selectedImage}>
         <GalleryImage image={selectedImage} />
         <GalleryThumbs selectImage={selectImage} images={images} />
       </div>
