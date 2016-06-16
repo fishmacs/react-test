@@ -3,7 +3,7 @@ import { Route, IndexRoute, Link, IndexLink } from 'react-router'
 import {SearchLayout} from 'app/components/search'
 import {UserListContainer, UserProfileContainer} from 'app/components/user'
 import {WidgetListContainer} from 'app/components/widget'
-import styles from 'app/styles/westfall.css'
+import styles, {active} from 'app/styles/westfall.css'
 
 export default (
   <Route path='/westfall' component={MainLayout}>
@@ -15,9 +15,9 @@ export default (
       <Route path=':id' component={UserProfileContainer} />
     </Route>
     <Route path='widgets'>
-        <Route component={SearchLayout}>
-          <IndexRoute component={WidgetListContainer} />
-        </Route>
+      <Route component={SearchLayout}>
+        <IndexRoute component={WidgetListContainer} />
+      </Route>
     </Route>
   </Route>
 )
@@ -29,9 +29,9 @@ function MainLayout(props) {
       <header className={styles['primary-header']}></header>
       <aside className={styles['primary-aside']}>
         <ul>
-          <li><IndexLink to='/westfall' activeClassName={styles.active}>Home</IndexLink></li>
-          <li><Link to='/westfall/users' activeClassName={styles.active}>Users</Link></li>
-          <li><Link to='/westfall/widgets' activeClassName={styles.active}>Widgets</Link></li>
+          <li><IndexLink to='/westfall' activeClassName={active}>Home</IndexLink></li>
+          <li><Link to='/westfall/users' activeClassName={active}>Users</Link></li>
+          <li><Link to='/westfall/widgets' activeClassName={active}>Widgets</Link></li>
         </ul>
       </aside>
       <main>
