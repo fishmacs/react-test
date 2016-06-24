@@ -9,7 +9,7 @@ import { SERVER, APP } from 'config/paths'
 
 const log = {
   webpack: debug('webpack'),
-  hot: debug('hot-reload')
+  hot: debug('hotReload')
 }
 
 export default function hotReload(app) {
@@ -18,8 +18,8 @@ export default function hotReload(app) {
   compiler.plugin('compilation', () => log.webpack('Webpack compiling'))
 
   app.use(webpackDev(compiler, {
-    quiet: false,
-    noInfo: false,
+    quiet: true,
+    noInfo: true,
     stats: {
       colors: true,
       reasons: true,
@@ -34,8 +34,12 @@ export default function hotReload(app) {
   watcher.on('ready', () => {
     watcher.on('all', () => {
       log.hot('Clearing /server/ module cache from server')
+      console.log('zwwww', Object.keys(require.cache).filter(id => !/node_modules/.test(id)))
       Object.keys(require.cache).forEach((id) => {
-        if (/\/server\//.test(id)) delete require.cache[id]
+        if (/\/server\//.test(id)) {
+          console.log(id)
+          delete require.cache[id]
+        }
       })
     })
   })
@@ -43,12 +47,16 @@ export default function hotReload(app) {
   log.hot('Watching client app source')
   compiler.plugin('done', () => {
     log.hot('Clearing /app/ module cache from server')
-    Object.keys(require.cache).forEach((id) => {
-      if (/\/app\//.test(id))
-        delete require.cache[id]
-      else if (/\/server\//.test(id))
-        delete require.cache[id]
-    })
+    // Object.keys(require.cache).forEach((id) => {
+    //   if (/\/app\//.test(id)) {
+    //     console.log(id)
+    //     delete require.cache[id]
+    //   }
+    //   else if (/\/server\//.test(id)) {
+    //     console.log(id)
+    //     delete require.cache[id]
+    //   }
+    // })
     // isomorphicTools.refresh()
   })
 }
