@@ -78,8 +78,8 @@
   },
   "scripts": {
     "start1": "nodemon -e js -w . -w src --ignore test/ --exec node_modules/.bin/babel-node --presets es2015,stage-0,react index.js",
-    "start": "node_modules/.bin/babel-node index.js --presets es2015,stage-0,react",
-    "build": "node_modules/.bin/babel index.js -d build; node_modules/.bin/babel ./src -d build/src",
-    "serve": "node build/index.js"
+    "start": "node_modules/.bin/babel-node scripts/start.js --presets es2015,stage-0,react",
+    "build": "node_modules/.bin/babel ./scripts -d build/scripts; node_modules/.bin/babel ./src -d build/src",
+    "serve": "node build/scripts/index.js"
   }
 }
