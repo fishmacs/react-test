@@ -2,6 +2,7 @@ import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 import { SRC, STATIC, APP, STYLES } from 'config/paths'
+import {isomorphicPlugin} from 'server/isomorphicTools'
 
 export default {
   entry: {
@@ -24,6 +25,7 @@ export default {
     ],
   },
   plugins: [
+    isomorphicPlugin,
     new webpack.NoErrorsPlugin(),
     // new CleanPlugin([ 'src/static' ], {
     //   root: ROOT,
@@ -41,7 +43,10 @@ export default {
     }),
   ],
   module: {
-    loaders: []
+    loaders: [{
+      test: isomorphicPlugin.regular_expression('images'),
+      loader: 'url-loader?limit=10240',
+    }]
   }
 }
 

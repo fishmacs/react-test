@@ -6,6 +6,7 @@ import webpackDev from 'koa-webpack-dev-middleware'
 import webpackHot from 'koa-webpack-hot-middleware'
 
 import { SERVER, APP } from 'config/paths'
+import {isomorphicTools} from 'server/isomorphicTools'
 
 const log = {
   webpack: debug('webpack'),
