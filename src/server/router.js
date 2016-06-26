@@ -6,8 +6,7 @@ import sendfile from 'koa-sendfile'
 
 import apiRouter from 'server/api'
 
-const router = rt()
-router.use(apiRouter.routes())
+export const router = rt()
 
 function *demoClientRender() {
   const html = path.join(__dirname, '../views/index.html')
@@ -15,7 +14,10 @@ function *demoClientRender() {
   yield sendfile(this, path.join(__dirname, '../views/index.html'))
 }
 
-router.get('demo', '/(.*)', demoClientRender)
+router
 
-export default router
-
+export function setRoutes() {
+  router
+    .use(apiRouter.routes())
+    .get('demo', '/(.*)', demoClientRender)
+}

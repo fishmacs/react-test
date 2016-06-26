@@ -35,7 +35,6 @@ export default function hotReload(app) {
   watcher.on('ready', () => {
     watcher.on('all', () => {
       log.hot('Clearing /server/ module cache from server')
-      console.log('zwwww', Object.keys(require.cache).filter(id => !/node_modules/.test(id)))
       Object.keys(require.cache).forEach((id) => {
         if (/\/server\//.test(id)) {
           console.log(id)
