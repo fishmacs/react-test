@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-//import { routerReducer } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux'
 
 import articleReducer from './article'
 import {userListReducer, userProfileReducer} from './user'
@@ -20,8 +20,8 @@ export default combineReducers({
   todos: todoReducer,
   visibilityFilter,
   postsBySubReddit,
-  selectedSubReddit
-//  routing: routerReducer
+  selectedSubReddit,
+  routing: routerReducer
 })
 
 // createReducer({}, {
