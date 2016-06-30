@@ -11,6 +11,9 @@ apiRouter.get('articles', '/articles', function *() {
     result: 'ok',
     data: [
       {
+        title: 'Immutable 详解及 React 中实践',
+      },
+      {
         title: 'React 源码剖析系列 － 生命周期的管理艺术',
       },
       {

@@ -5,6 +5,7 @@ export function isDevMode() {
 }
 
 export const hasWindow = typeof window !== 'undefined'
+
 export const isBrowser = typeof GLOBAL === 'undefined'
 
 export async function fetch(url) {

@@ -15,7 +15,7 @@ export default {
   output: {
     path: STATIC,
     filename: '[name].js',
-    publicPath: '/static',
+    publicPath: '/static/',
   },
   resolve: {
     root: SRC,

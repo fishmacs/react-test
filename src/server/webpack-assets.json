@@ -1,0 +1,9 @@
+{
+  "javascript": {
+    "common.js": "/static/common.js",
+    "body": "/static/body.js",
+    "head": "/static/head.js"
+  },
+  "styles": {},
+  "assets": {}
+}
