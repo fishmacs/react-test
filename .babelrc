@@ -3,7 +3,7 @@
   "plugins": [
     "add-module-exports",
     "react-require",
-    "transform-decorators-legacy",
+    ["transform-decorators-legacy"],
     ["module-alias", [
       {"src": "./src/config", "expose": "config"},
       {"src": "./src/app", "expose": "app"},
