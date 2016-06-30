@@ -13,7 +13,7 @@ export default function(routes) {
 }
 
 function getRouteContext(ctx, routes) {
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     match(
       {routes, location: ctx.request.url},
       (error, redirect, renderProps) => {
@@ -27,7 +27,7 @@ function getRouteContext(ctx, routes) {
           ctx.status = 404
           reject()
         } else {
-          reolve(<RouterContext {...renderProps} />)
+          resolve(<RouterContext {...renderProps} />)
         }
       })
   })

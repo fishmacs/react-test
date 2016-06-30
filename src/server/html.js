@@ -33,7 +33,7 @@ class Html extends React.Component {
         <head>
           {hasWindow ? null : DocumentMeta.renderAsReact()}
           <link rel='icon' type='image/x-icon' href='/static/favicon.ico' />
-          {headStyle.map((style, i) => 
+          {headStyles.map((style, i) =>
             <link href={style} key={i} type='text/css' rel='stylesheet' media='screen' />
 
           )}

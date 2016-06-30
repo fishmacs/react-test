@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 
 import reducers from 'app/reducers'
-import {storeMaker} from 'app/services/store'
+import storeMaker from 'app/services/storeMaker'
 import {middlewares} from 'app/services/middleware'
 
 export default function *(next) {
