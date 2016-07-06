@@ -17,6 +17,7 @@ cssModulesHook({
     const path = exportedPath
             .replace(`${ROOT}`, '')
             .replace(/^\//, '')
+            .replace(/\.css$/, '')
             .replace(/\/|\./g, '-')
     return `${path}-${exportedName}`
   }
