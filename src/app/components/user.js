@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 
 import {fetchUserList, deleteUser, getUserProfile, loadSearchLayout} from 'app/action/westfall'
 import store from 'app/services/store'
-import styles from 'app/styles/westfall'
+import styles from 'app/styles/westfall.css'
 
 @connect(state => ({users: state.user.data}))
 export class UserListContainer extends React.Component {

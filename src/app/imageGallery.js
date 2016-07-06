@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 import CSSModule from 'react-css-modules'
 
 import * as actions from 'app/action/gallery'
-import styles from 'app/styles/gallery'
+import styles from 'app/styles/gallery.css'
 
 @connect(
   state => ({

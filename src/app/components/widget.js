@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 
 import {fetchWidgetList, deleteWidget, loadSearchLayout} from 'app/action/westfall'
 import store from 'app/services/store'
-import styles from 'app/styles/westfall'
+import styles from 'app/styles/westfall.css'
 
 @connect(state => ({widgets: state.widget.data}))
 export class WidgetListContainer extends React.Component {
