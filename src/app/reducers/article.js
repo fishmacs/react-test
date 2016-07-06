@@ -23,10 +23,3 @@ export default typeToReducer({
     })
   }
 }, initialState)
-
-// export function articleReducer(state=initialState, action) {
-//   console.log('wwww', action)
-//   const newState = articleReducer1(state, action)
-//   console.log('vvvv', newState)
-//   return newState
-// }
