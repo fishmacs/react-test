@@ -37,7 +37,6 @@ export default function hotReload(app) {
       log.hot('Clearing /server/ module cache from server')
       Object.keys(require.cache).forEach((id) => {
         if (/\/server\//.test(id)) {
-          console.log(id)
           delete require.cache[id]
         }
       })
@@ -49,11 +48,9 @@ export default function hotReload(app) {
     log.hot('Clearing /app/ module cache from server')
     Object.keys(require.cache).forEach((id) => {
       if (/\/app\//.test(id)) {
-        console.log(id)
         delete require.cache[id]
       }
       else if (/\/server\//.test(id)) {
-        console.log(id)
         delete require.cache[id]
       }
     })

@@ -33,7 +33,6 @@ export class Main extends React.Component {
 
 export class Demo extends React.Component {
   render() {
-    // console.log(styles)
     return (
       <div>
         <nav className={styles.nav}>
