@@ -71,7 +71,8 @@ class Html extends React.Component {
 
   getDivContent() {
     const {children} = this.props
-    return children ? null : ReactDOMServer.renderToString(children)
+    const html = children ? ReactDOMServer.renderToString(children) : null
+    return html
   }
 }
 
