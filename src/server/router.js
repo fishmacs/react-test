@@ -45,7 +45,7 @@ export function setRoutes(assets) {
   router.stack.length = 0
 
   const assetMap = {
-    headScripts: compact([assets.javascript.head]),
+    headScripts: compact([assets.javascript.common, assets.javascript.head]),
     bodyScripts: compact([assets.javascript.body]),
     headStyles: compact([assets.styles.body, assets.styles.head]),
     bodyStyles: []

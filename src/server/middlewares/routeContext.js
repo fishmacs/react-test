@@ -29,6 +29,7 @@ function getRouteContext(ctx, routes) {
         } else {
           resolve(<RouterContext {...renderProps} />)
         }
-      })
+      }
+    )
   })
 }
