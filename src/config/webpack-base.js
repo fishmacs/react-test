@@ -37,7 +37,7 @@ export default {
       },
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
     new ExtractTextPlugin('[name].css', {
       allChunks: true,
     }),
