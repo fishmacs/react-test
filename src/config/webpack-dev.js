@@ -8,6 +8,13 @@ import webpackBaseConfig, { babelLoaderConfig } from './webpack-base'
 
 export default {
   ...webpackBaseConfig,
+  entry: {
+    ...webpackBaseConfig.entry,
+    head: [
+      ...webpackBaseConfig.entry.head,
+      'webpack-hot-middleware/client'
+    ]
+  },
   devtool: '#cheap-module-eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -18,7 +25,8 @@ export default {
     cssnano(),
   ],
   module: {
-    loaders: [{
+    loaders: [
+      ...webpackBaseConfig.module.loaders, {
       test: /\.css$/,
       include: [/src\/app/],
       // no extracting css-moduels in dev for hot-reloading
