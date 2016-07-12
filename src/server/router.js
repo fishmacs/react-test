@@ -53,7 +53,7 @@ export function setRoutes(assets) {
 
   const renderApp = compose(
     setStore,
-    setRouteContext(appRoutes()),
+    setRouteContext(appRoutes),
     renderRouteContext(assetMap)
   )
 

@@ -10,26 +10,31 @@ import galleryRoutes from 'app/imageGallery.js'
 import todoRoutes from 'app/todoList.js'
 import redditRoutes from 'app/reddit.js'
 
-function routes() {
-  return (
-    <Route path='/' component={Demo}>
-      {routeTestRoutes}
-      {blogRoutes}
-      {ryfRoutes}
-      {wfRoutes}
-      {galleryRoutes}
-      {todoRoutes}
-      {redditRoutes}
-    </Route>
-  )
-}
+// function routes() {
+//   return (
+//     <Route path='/' component={Demo}>
+//       {routeTestRoutes}
+//       {blogRoutes}
+//       {ryfRoutes}
+//       {wfRoutes}
+//       {galleryRoutes}
+//       {todoRoutes}
+//       {redditRoutes}
+//     </Route>
+//   )
+// }
 
-// export default (
-//   <Route path='/' component={Demo}>
-//     {routeTestRoutes}
-//     {blogRoutes}
-//   </Route>
-// )
+export default (
+  <Route path='/' component={Demo}>
+    {routeTestRoutes}
+    {blogRoutes}
+    {ryfRoutes}
+    {wfRoutes}
+    {galleryRoutes}
+    {todoRoutes}
+    {redditRoutes}
+  </Route>
+)
 
-export default routes
+//export default routes
 
