@@ -4,10 +4,17 @@ import {middlewares, saga} from 'app/services/middleware'
 import {watchLoad} from 'app/sagas'
 import {isBrowser} from 'app/utils'
 
-export default storeMaker(middlewares)(
+const store = storeMaker(middlewares)(
   reducers,
   isBrowser ? window.__INITIAL_STATE__ : {}
 )
 
 saga.run(watchLoad)
 
+export default store
+
+if(module.hot) {
+  module.hot.accept('app/reducers', () => {
+    store.replaceReducer(require('app/reducers'))
+  })
+}
